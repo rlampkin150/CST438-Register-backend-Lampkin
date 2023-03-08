@@ -45,7 +45,7 @@ public class JunitTestStudent {
 		
 		when(studentRepository.findByEmail(testEmail)).thenReturn(null);
 		when(studentRepository.save(testStudent)).thenReturn(testStudent);
-		
+		//Test response from test object using addStudent
 		response = mvc.perform(post("/student")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(testStudent))
@@ -71,7 +71,7 @@ public class JunitTestStudent {
 		
 		when(studentRepository.findByEmail(testEmail)).thenReturn(testStudent);
 	    when(studentRepository.save(testStudent)).thenReturn(testStudent);
-
+	    //Get response from the test object using addHold
         response = mvc.perform(post("/addHold")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(testStudent))
@@ -97,7 +97,7 @@ public class JunitTestStudent {
 		
 		when(studentRepository.findByEmail(testEmail)).thenReturn(testStudent);
 	    when(studentRepository.save(testStudent)).thenReturn(testStudent);
-	    
+	    //Test removing the hold using testStudent object
 	    response = mvc.perform(post("/removeHold")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(testStudent))

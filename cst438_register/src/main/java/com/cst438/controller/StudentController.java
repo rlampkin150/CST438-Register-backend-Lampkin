@@ -22,7 +22,7 @@ public class StudentController {
 	@Transactional
 	public Student addStudent(@RequestBody StudentDTO studentDTO) {
 		Student newStudent = studentRepository.findByEmail(studentDTO.getEmail());
-		
+		//If student doesn't already exist, create student object from DTO and save to repository
 		if (newStudent == null) {
 			newStudent = new Student();
 			newStudent.setEmail(studentDTO.getEmail());
@@ -39,7 +39,7 @@ public class StudentController {
 	@Transactional
 	public Student addHold(@RequestBody StudentDTO studentDTO) {
 		Student student = studentRepository.findByEmail(studentDTO.getEmail());
-		
+		//If student exists, set status to Hold, status code to 1
 		if (student != null) {
 			student.setStatusCode(1);
 			student.setStatus("Hold");
@@ -55,7 +55,7 @@ public class StudentController {
 	@Transactional
 	public Student removeHold(@RequestBody StudentDTO studentDTO) {
 		Student student = studentRepository.findByEmail(studentDTO.getEmail());
-		
+		//If student exists, set status to null, status code to 0
 		if (student != null) {
 			student.setStatusCode(0);
 			student.setStatus(null);
