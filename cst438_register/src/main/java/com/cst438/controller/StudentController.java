@@ -35,7 +35,7 @@ public class StudentController {
 		}
 	}
 	
-	@PostMapping("/student/addHold")
+	@PostMapping("/addHold")
 	@Transactional
 	public Student addHold(@RequestBody StudentDTO studentDTO) {
 		Student student = studentRepository.findByEmail(studentDTO.getEmail());
@@ -51,7 +51,7 @@ public class StudentController {
 		}
 	}
 	
-	@PostMapping("/student/removeHold")
+	@PostMapping("/removeHold")
 	@Transactional
 	public Student removeHold(@RequestBody StudentDTO studentDTO) {
 		Student student = studentRepository.findByEmail(studentDTO.getEmail());

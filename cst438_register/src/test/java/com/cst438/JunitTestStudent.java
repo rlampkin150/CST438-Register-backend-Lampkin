@@ -72,7 +72,7 @@ public class JunitTestStudent {
 		when(studentRepository.findByEmail(testEmail)).thenReturn(testStudent);
 	    when(studentRepository.save(testStudent)).thenReturn(testStudent);
 
-        response = mvc.perform(post("/student/addHold")
+        response = mvc.perform(post("/addHold")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\":\"Ryan Lampkin\", \"email\":\"rlampkin@csumb.edu\", \"statusCode\":\"0\", \"status\":\"null\"}")
                 .accept(MediaType.APPLICATION_JSON))
@@ -98,7 +98,7 @@ public class JunitTestStudent {
 		when(studentRepository.findByEmail(testEmail)).thenReturn(testStudent);
 	    when(studentRepository.save(testStudent)).thenReturn(testStudent);
 	    
-	    response = mvc.perform(post("/student/removeHold")
+	    response = mvc.perform(post("/removeHold")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\":\"Ryan Lampkin\", \"email\":\"rlampkin@csumb.edu\", \"statusCode\":\"1\", \"status\":\"Hold\"}")
                 .accept(MediaType.APPLICATION_JSON))
