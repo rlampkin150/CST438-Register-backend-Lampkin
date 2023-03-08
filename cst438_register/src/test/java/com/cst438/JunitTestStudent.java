@@ -48,7 +48,7 @@ public class JunitTestStudent {
 		
 		response = mvc.perform(post("/student")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"name\":\"Ryan Lampkin\", \"email\":\"rlampkin@csumb.edu\"}")
+                .content(asJsonString(testStudent))
                 .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
 		
@@ -74,7 +74,7 @@ public class JunitTestStudent {
 
         response = mvc.perform(post("/addHold")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"name\":\"Ryan Lampkin\", \"email\":\"rlampkin@csumb.edu\", \"statusCode\":\"0\", \"status\":\"null\"}")
+                .content(asJsonString(testStudent))
                 .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         
@@ -100,7 +100,7 @@ public class JunitTestStudent {
 	    
 	    response = mvc.perform(post("/removeHold")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"name\":\"Ryan Lampkin\", \"email\":\"rlampkin@csumb.edu\", \"statusCode\":\"1\", \"status\":\"Hold\"}")
+                .content(asJsonString(testStudent))
                 .accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
 	    
